@@ -8,6 +8,7 @@ import io.micronaut.core.async.annotation.SingleResult
 import io.micronaut.http.annotation.Controller
 import io.micronaut.http.annotation.Get
 import org.reactivestreams.Publisher
+import reactor.core.publisher.Mono
 
 @Controller("/awair")
 @CompileStatic
