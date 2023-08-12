@@ -1,8 +1,8 @@
-package com.brunoflavio.awair.controllers
+package com.brunoflavio.awair.infrastructure.controller
 
-import com.brunoflavio.awair.clients.AwairClient
-import com.brunoflavio.awair.domain.AwairReading
-import com.brunoflavio.awair.services.AwairDataFetcherService
+
+import com.brunoflavio.awair.domain.model.AwairReading
+import com.brunoflavio.awair.domain.usecase.AwairDataFetcherUseCase
 import groovy.transform.CompileStatic
 import io.micronaut.core.async.annotation.SingleResult
 import io.micronaut.http.annotation.Controller
@@ -13,9 +13,9 @@ import org.reactivestreams.Publisher
 @CompileStatic
 class AwairController {
 
-    private AwairDataFetcherService service
+    private AwairDataFetcherUseCase service
 
-    AwairController(AwairDataFetcherService service) {
+    AwairController(AwairDataFetcherUseCase service) {
         this.service = service
     }
 

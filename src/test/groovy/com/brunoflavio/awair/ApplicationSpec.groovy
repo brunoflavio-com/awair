@@ -2,14 +2,14 @@ package com.brunoflavio.awair
 
 import io.micronaut.runtime.EmbeddedApplication
 import io.micronaut.test.extensions.spock.annotation.MicronautTest
-import spock.lang.Specification
 import jakarta.inject.Inject
+import spock.lang.Specification
 
 @MicronautTest
-class AwairSpec extends Specification {
+class ApplicationSpec extends Specification {
 
     @Inject
-    EmbeddedApplication<?> application
+    EmbeddedApplication<? extends EmbeddedApplication> application
 
     void 'test it works'() {
         expect:

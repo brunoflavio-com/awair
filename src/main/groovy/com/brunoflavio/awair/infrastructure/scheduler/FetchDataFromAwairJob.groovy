@@ -1,22 +1,23 @@
-package com.brunoflavio.awair.jobs
+package com.brunoflavio.awair.infrastructure.scheduler
 
-import com.brunoflavio.awair.services.AwairDataFetcherService
+import com.brunoflavio.awair.domain.usecase.DefaultAwairDataFetcherUseCase
 import groovy.transform.CompileStatic
 import groovy.util.logging.Slf4j
-import jakarta.inject.Singleton
 import io.micronaut.scheduling.annotation.Scheduled
+import jakarta.inject.Singleton
 
 @Singleton
 @Slf4j
 @CompileStatic
 class FetchDataFromAwairJob {
 
-    private AwairDataFetcherService service
+    private DefaultAwairDataFetcherUseCase service
 
 
-    FetchDataFromAwairJob(AwairDataFetcherService service) {
+    FetchDataFromAwairJob(DefaultAwairDataFetcherUseCase service) {
         this.service = service
     }
+
     @Scheduled(fixedRate = "1m")
     void process() {
         log.info('Requesting data from Awair service (periodic job)')

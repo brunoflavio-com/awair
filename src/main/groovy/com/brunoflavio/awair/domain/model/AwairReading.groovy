@@ -1,5 +1,6 @@
-package com.brunoflavio.awair.domain
+package com.brunoflavio.awair.domain.model
 
+import groovy.transform.Canonical
 import groovy.transform.CompileStatic
 import io.micronaut.serde.annotation.Serdeable
 
@@ -25,6 +26,7 @@ import java.time.Instant
 }
  */
 
+@Canonical
 @Serdeable
 @CompileStatic
 class AwairReading {

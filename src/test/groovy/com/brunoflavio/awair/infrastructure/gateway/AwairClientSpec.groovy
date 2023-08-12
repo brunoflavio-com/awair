@@ -1,7 +1,7 @@
-package com.brunoflavio.awair.clients
+package com.brunoflavio.awair.infrastructure.gateway
 
-import com.brunoflavio.awair.clients.AwairClient
-import com.brunoflavio.awair.domain.AwairReading
+
+import com.brunoflavio.awair.domain.model.AwairReading
 import io.micronaut.context.ApplicationContext
 import io.micronaut.context.annotation.Requires
 import io.micronaut.http.annotation.Controller
@@ -31,26 +31,26 @@ class AwairClientSpec extends Specification {
 
         then:
         StepVerifier.create(data)
-            .expectNextMatches { reading ->
-                assert reading.timestamp == Instant.parse(MockAwairDeviceLatestData.MOCK_TIMESTAMP)
-                assert reading.score == MockAwairDeviceLatestData.MOCK_SCORE
-                assert reading.dew_point == MockAwairDeviceLatestData.MOCK_DEW_POINT
-                assert reading.temp == MockAwairDeviceLatestData.MOCK_TEMP
-                assert reading.humid == MockAwairDeviceLatestData.MOCK_HUMID
-                assert reading.abs_humid == MockAwairDeviceLatestData.MOCK_ABS_HUMID
-                assert reading.co2 == MockAwairDeviceLatestData.MOCK_CO2
-                assert reading.co2_est == MockAwairDeviceLatestData.MOCK_CO2_EST
-                assert reading.co2_est_baseline == MockAwairDeviceLatestData.MOCK_CO2_EST_BASELINE
-                assert reading.voc == MockAwairDeviceLatestData.MOCK_VOC
-                assert reading.voc_baseline == MockAwairDeviceLatestData.MOCK_VOC_BASELINE
-                assert reading.voc_h2_raw == MockAwairDeviceLatestData.MOCK_VOC_H2_RAW
-                assert reading.voc_ethanol_raw == MockAwairDeviceLatestData.MOCK_VOC_ETHANOL_RAW
-                assert reading.pm25 == MockAwairDeviceLatestData.MOCK_PM25
-                assert reading.pm10_est == MockAwairDeviceLatestData.MOCK_PM10_EST
-                true
-            }
-        .expectComplete()
-        .verify()
+                .expectNextMatches { reading ->
+                    assert reading.timestamp == Instant.parse(MockAwairDeviceLatestData.MOCK_TIMESTAMP)
+                    assert reading.score == MockAwairDeviceLatestData.MOCK_SCORE
+                    assert reading.dew_point == MockAwairDeviceLatestData.MOCK_DEW_POINT
+                    assert reading.temp == MockAwairDeviceLatestData.MOCK_TEMP
+                    assert reading.humid == MockAwairDeviceLatestData.MOCK_HUMID
+                    assert reading.abs_humid == MockAwairDeviceLatestData.MOCK_ABS_HUMID
+                    assert reading.co2 == MockAwairDeviceLatestData.MOCK_CO2
+                    assert reading.co2_est == MockAwairDeviceLatestData.MOCK_CO2_EST
+                    assert reading.co2_est_baseline == MockAwairDeviceLatestData.MOCK_CO2_EST_BASELINE
+                    assert reading.voc == MockAwairDeviceLatestData.MOCK_VOC
+                    assert reading.voc_baseline == MockAwairDeviceLatestData.MOCK_VOC_BASELINE
+                    assert reading.voc_h2_raw == MockAwairDeviceLatestData.MOCK_VOC_H2_RAW
+                    assert reading.voc_ethanol_raw == MockAwairDeviceLatestData.MOCK_VOC_ETHANOL_RAW
+                    assert reading.pm25 == MockAwairDeviceLatestData.MOCK_PM25
+                    assert reading.pm10_est == MockAwairDeviceLatestData.MOCK_PM10_EST
+                    true
+                }
+                .expectComplete()
+                .verify()
     }
 
     private EmbeddedServer instantiateApplicationWithAwairUrlPointingToUrl(String url) {
@@ -74,7 +74,7 @@ class AwairClientSpec extends Specification {
         static int MOCK_SCORE = 67
         static BigDecimal MOCK_DEW_POINT = 19.88
         static BigDecimal MOCK_TEMP = 24.6
-        static int MOCK_HUMID = 75
+        static BigDecimal MOCK_HUMID = 75.13
         static BigDecimal MOCK_ABS_HUMID = 16.85
         static int MOCK_CO2 = 1447
         static int MOCK_CO2_EST = 1563
@@ -87,6 +87,7 @@ class AwairClientSpec extends Specification {
         static int MOCK_PM10_EST = 9
 
 
+        @SuppressWarnings('GrMethodMayBeStatic')
         @Produces("application/json")
         @Get("latest")
         Optional<String> latest() {
