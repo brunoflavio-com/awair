@@ -21,6 +21,6 @@ class AwairController {
     @Get("/latest")
     @SingleResult
     Publisher<AwairReading> fetchLatestReading() {
-        service.fetchData()
+        service.fetchLatestData()
     }
 }

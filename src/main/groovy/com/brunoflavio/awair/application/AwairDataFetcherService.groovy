@@ -7,6 +7,6 @@ import org.reactivestreams.Publisher
 interface AwairDataFetcherService {
 
     @SingleResult
-    Publisher<AwairReading> fetchData()
+    Publisher<AwairReading> fetchLatestData()
 
 }

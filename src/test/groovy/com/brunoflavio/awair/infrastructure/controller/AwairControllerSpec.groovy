@@ -30,7 +30,7 @@ class AwairControllerSpec extends Specification {
     def "FetchLatestReading should return 200 OK"() {
         given: "a predefined reading to be returned by the mock service"
         def expectedReading = new AwairReading()
-        awairDataFetcherService.fetchData() >> Mono.just(expectedReading)
+        awairDataFetcherService.fetchLatestData() >> Mono.just(expectedReading)
 
 
         when: "making a GET request to the /latest endpoint"
