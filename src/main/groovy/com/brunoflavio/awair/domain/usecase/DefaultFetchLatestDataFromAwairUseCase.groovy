@@ -9,10 +9,10 @@ import org.reactivestreams.Publisher
 
 @Singleton
 @CompileStatic
-class DefaultAwairDataFetcherUseCase implements AwairDataFetcherUseCase {
+class DefaultFetchLatestDataFromAwairUseCase implements FetchLatestDataFromAwairUseCase {
     private AwairClient client
 
-    DefaultAwairDataFetcherUseCase(AwairClient client) {
+    DefaultFetchLatestDataFromAwairUseCase(AwairClient client) {
         this.client = client
     }
 

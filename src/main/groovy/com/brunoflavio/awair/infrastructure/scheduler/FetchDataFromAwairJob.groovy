@@ -1,6 +1,7 @@
 package com.brunoflavio.awair.infrastructure.scheduler
 
-import com.brunoflavio.awair.domain.usecase.DefaultAwairDataFetcherUseCase
+
+import com.brunoflavio.awair.domain.usecase.FetchLatestDataFromAwairUseCase
 import groovy.transform.CompileStatic
 import groovy.util.logging.Slf4j
 import io.micronaut.scheduling.annotation.Scheduled
@@ -11,10 +12,10 @@ import jakarta.inject.Singleton
 @CompileStatic
 class FetchDataFromAwairJob {
 
-    private DefaultAwairDataFetcherUseCase service
+    private FetchLatestDataFromAwairUseCase service
 
 
-    FetchDataFromAwairJob(DefaultAwairDataFetcherUseCase service) {
+    FetchDataFromAwairJob(FetchLatestDataFromAwairUseCase service) {
         this.service = service
     }
 

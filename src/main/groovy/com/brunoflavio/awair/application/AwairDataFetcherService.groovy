@@ -1,8 +1,12 @@
 package com.brunoflavio.awair.application
 
-import jakarta.inject.Singleton
+import com.brunoflavio.awair.domain.model.AwairReading
+import io.micronaut.core.async.annotation.SingleResult
+import org.reactivestreams.Publisher
 
-@Singleton
-class AwairDataFetcherService {
+interface AwairDataFetcherService {
+
+    @SingleResult
+    Publisher<AwairReading> fetchLatestData()
 
 }

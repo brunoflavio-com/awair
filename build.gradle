@@ -22,6 +22,7 @@ dependencies {
     implementation("io.micronaut.serde:micronaut-serde-jackson")
     compileOnly("io.micronaut.serde:micronaut-serde-processor")
     runtimeOnly("ch.qos.logback:logback-classic")
+    implementation("io.projectreactor:reactor-core")
     testImplementation("io.projectreactor:reactor-test")
     testImplementation("org.apache.groovy:groovy-json")
 }
