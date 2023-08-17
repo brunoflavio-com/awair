@@ -14,19 +14,19 @@ import reactor.core.publisher.Mono
 class DefaultAwairDataFetcherService implements AwairDataFetcherService {
 
     private final StoreReadingUseCase storeReadingUseCase
-    private final FetchLatestDataFromAwairUseCase fetchLatestDateFromAwairUseCase
+    private final FetchLatestDataFromAwairUseCase fetchLatestDataFromAwairUseCase
 
     DefaultAwairDataFetcherService(
             StoreReadingUseCase storeReadingUseCase,
             FetchLatestDataFromAwairUseCase fetchLatestDataFromAwairUseCase
     ) {
         this.storeReadingUseCase = storeReadingUseCase
-        this.fetchLatestDateFromAwairUseCase = fetchLatestDataFromAwairUseCase
+        this.fetchLatestDataFromAwairUseCase = fetchLatestDataFromAwairUseCase
     }
 
     @SingleResult
     Publisher<AwairReading> fetchLatestData() {
-        def latestReadingAsync = fetchLatestDateFromAwairUseCase.fetchData()
+        def latestReadingAsync = fetchLatestDataFromAwairUseCase.fetchData()
         def storeReadingAsync = { AwairReading reading -> storeReadingUseCase.persist(reading) }
 
         Mono.from(latestReadingAsync).flatMap { storeReadingAsync(it) } as Publisher<AwairReading>

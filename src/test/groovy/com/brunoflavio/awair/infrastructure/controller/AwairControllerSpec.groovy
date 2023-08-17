@@ -42,11 +42,12 @@ class AwairControllerSpec extends Specification {
     }
 
     def "FetchLatestReading should contact the retrieval service"() {
-        given: "a mock service to handle the fetchdata request"
-        def mockService = Mock(AwairDataFetcherService)
+        given: "a predefined reading to be returned by the mock service"
+        def expectedReading = new AwairReading()
+        awairDataFetcherService.fetchLatestData() >> Mono.just(expectedReading)
 
         and: "a AwairController"
-        def controller = new AwairController(mockService)
+        def controller = new AwairController(awairDataFetcherService)
 
         when: "fetchLatestReading is called"
         def resultAsync = controller.fetchLatestReading()
@@ -54,5 +55,6 @@ class AwairControllerSpec extends Specification {
         then: "the service should have been called"
         StepVerifier.create(resultAsync)
                 .expectNextCount(1)
+                .verifyComplete()
     }
 }
