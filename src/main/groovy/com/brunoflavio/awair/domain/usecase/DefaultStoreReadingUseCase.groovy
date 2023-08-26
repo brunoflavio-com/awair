@@ -7,8 +7,9 @@ import groovy.transform.CompileStatic
 import jakarta.inject.Singleton
 import org.reactivestreams.Publisher
 
-@Singleton
+
 @CompileStatic
+@Singleton
 class DefaultStoreReadingUseCase implements StoreReadingUseCase {
 
     private final ReadingsRepository readingsRepository

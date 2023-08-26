@@ -8,8 +8,9 @@ import io.micronaut.http.annotation.Controller
 import io.micronaut.http.annotation.Get
 import org.reactivestreams.Publisher
 
-@Controller("/awair")
+
 @CompileStatic
+@Controller("/awair")
 class AwairController {
 
     private AwairDataFetcherService service

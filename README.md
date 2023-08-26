@@ -68,3 +68,20 @@ Set the Awair device hostname in the application.properties file or pass them as
 ## Feature micronaut-aot documentation
 
 - [Micronaut AOT documentation](https://micronaut-projects.github.io/micronaut-aot/latest/guide/)
+
+## Feature data-jdbc documentation
+
+- [Micronaut Data JDBC documentation](https://micronaut-projects.github.io/micronaut-data/latest/guide/index.html#jdbc)
+
+## Feature flyway documentation
+
+- [Micronaut Flyway Database Migration documentation](https://micronaut-projects.github.io/micronaut-flyway/latest/guide/index.html)
+- [https://flywaydb.org/](https://flywaydb.org/)
+
+## Feature validation documentation
+
+- [Micronaut Validation documentation](https://micronaut-projects.github.io/micronaut-validation/latest/guide/)
+
+## Feature jdbc-hikari documentation
+
+- [Micronaut Hikari JDBC Connection Pool documentation](https://micronaut-projects.github.io/micronaut-sql/latest/guide/index.html#jdbc)
