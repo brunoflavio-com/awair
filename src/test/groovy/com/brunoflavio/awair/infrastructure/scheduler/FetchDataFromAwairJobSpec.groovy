@@ -1,17 +1,17 @@
 package com.brunoflavio.awair.infrastructure.scheduler
 
-
-import com.brunoflavio.awair.domain.usecase.FetchLatestDataFromAwairUseCase
+import com.brunoflavio.awair.application.AwairDataFetcherService
 import io.micronaut.test.annotation.MockBean
 import io.micronaut.test.extensions.spock.annotation.MicronautTest
 import jakarta.inject.Inject
+import reactor.core.publisher.Mono
 import spock.lang.Specification
 
 @MicronautTest
 class FetchDataFromAwairJobSpec extends Specification {
 
-    @MockBean(FetchLatestDataFromAwairUseCase)
-    FetchLatestDataFromAwairUseCase mockService = Mock(FetchLatestDataFromAwairUseCase)
+    @MockBean(AwairDataFetcherService)
+    AwairDataFetcherService mockService = Mock(AwairDataFetcherService)
 
     @Inject
     FetchDataFromAwairJob job
@@ -21,6 +21,6 @@ class FetchDataFromAwairJobSpec extends Specification {
         job.process()
 
         then: "fetchData method on the service should be called"
-        1 * mockService.fetchData()
+        1 * mockService.fetchLatestData() >> Mono.empty()
     }
 }
