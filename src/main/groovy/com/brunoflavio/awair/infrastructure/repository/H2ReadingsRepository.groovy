@@ -36,8 +36,10 @@ class H2ReadingsRepository implements ReadingsRepository {
     }
 
     @Override
-    Publisher<List<AwairReading>> fetchByInterval(Instant from, Instant to) {
-        Flux.just([])
+    Publisher<List<AwairReading>> findByTimestampInterval(Instant from, Instant to) {
+        Flux.from(repository.findByTimestampInterval(from, to))
+                .map { mapToAwairReading(it) }
+                .collectList()
     }
 
     @Override
