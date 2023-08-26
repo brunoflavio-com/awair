@@ -9,8 +9,8 @@ import jakarta.inject.Singleton
 import org.reactivestreams.Publisher
 import reactor.core.publisher.Mono
 
-@Singleton
 @CompileStatic
+@Singleton
 class DefaultAwairDataFetcherService implements AwairDataFetcherService {
 
     private final StoreReadingUseCase storeReadingUseCase

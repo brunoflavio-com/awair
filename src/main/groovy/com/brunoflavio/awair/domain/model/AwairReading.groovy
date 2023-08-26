@@ -26,9 +26,10 @@ import java.time.Instant
 }
  */
 
+
+@CompileStatic
 @Canonical
 @Serdeable
-@CompileStatic
 class AwairReading {
     Instant timestamp
     Integer score

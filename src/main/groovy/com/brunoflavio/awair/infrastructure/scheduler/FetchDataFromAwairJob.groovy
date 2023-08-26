@@ -7,9 +7,10 @@ import groovy.util.logging.Slf4j
 import io.micronaut.scheduling.annotation.Scheduled
 import jakarta.inject.Singleton
 
-@Singleton
-@Slf4j
+
 @CompileStatic
+@Slf4j
+@Singleton
 class FetchDataFromAwairJob {
 
     private FetchLatestDataFromAwairUseCase service

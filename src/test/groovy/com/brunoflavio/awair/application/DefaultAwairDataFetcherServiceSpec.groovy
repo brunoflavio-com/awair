@@ -11,7 +11,7 @@ import reactor.test.StepVerifier
 import spock.lang.Specification
 
 @MicronautTest
-class DefaultAwairDataFetcherServiceTest extends Specification {
+class DefaultAwairDataFetcherServiceSpec extends Specification {
 
     @MockBean(FetchLatestDataFromAwairUseCase)
     FetchLatestDataFromAwairUseCase fetchLatestDataFromAwairUseCase = Mock(FetchLatestDataFromAwairUseCase)

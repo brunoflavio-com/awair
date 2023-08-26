@@ -1,16 +1,25 @@
 package com.brunoflavio.awair.domain.usecase
 
+
 import com.brunoflavio.awair.domain.model.AwairReading
+import com.brunoflavio.awair.infrastructure.repository.ReadingsRepository
 import groovy.transform.CompileStatic
 import jakarta.inject.Singleton
 import org.reactivestreams.Publisher
-import reactor.core.publisher.Mono
 
-@Singleton
+
 @CompileStatic
+@Singleton
 class DefaultStoreReadingUseCase implements StoreReadingUseCase {
+
+    private final ReadingsRepository readingsRepository
+
+    DefaultStoreReadingUseCase(ReadingsRepository readingsRepository) {
+        this.readingsRepository = readingsRepository
+    }
+
     @Override
     Publisher<AwairReading> persist(AwairReading reading) {
-        Mono.just(reading)
+        readingsRepository.save(reading)
     }
 }
