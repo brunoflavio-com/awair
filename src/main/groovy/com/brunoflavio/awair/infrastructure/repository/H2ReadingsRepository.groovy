@@ -39,4 +39,12 @@ class H2ReadingsRepository implements ReadingsRepository {
     Publisher<List<AwairReading>> fetchByInterval(Instant from, Instant to) {
         Flux.just([])
     }
+
+    @Override
+    Publisher<AwairReading> findByTimestamp(Instant timestamp) {
+        Mono.from(repository.findById(timestamp))
+                .flatMap {
+                    Mono.just(mapToAwairReading(it))
+                }
+    }
 }

@@ -2,7 +2,7 @@ DROP TABLE IF EXISTS genre;
 
 CREATE TABLE readings
 (
-    timestamp        TIMESTAMP NOT NULL PRIMARY KEY,
+    timestamp TIMESTAMP(9) NOT NULL PRIMARY KEY,
     score            INT,
     dew_point        DECIMAL(10, 2),
     temp             DECIMAL(10, 2),

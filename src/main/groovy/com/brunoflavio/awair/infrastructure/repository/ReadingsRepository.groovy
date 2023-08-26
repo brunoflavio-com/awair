@@ -13,4 +13,7 @@ interface ReadingsRepository {
     Publisher<AwairReading> save(AwairReading awairReading)
 
     Publisher<List<AwairReading>> fetchByInterval(Instant from, Instant to)
+
+    @SingleResult
+    Publisher<AwairReading> findByTimestamp(Instant instant)
 }

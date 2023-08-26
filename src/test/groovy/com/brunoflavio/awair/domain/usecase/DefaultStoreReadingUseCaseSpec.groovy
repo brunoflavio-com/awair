@@ -8,7 +8,6 @@ import spock.lang.Specification
 
 class DefaultStoreReadingUseCaseSpec extends Specification {
 
-
     def "persist should return the provided reading"() {
         given: "a reading"
         AwairReading reading = new AwairReading()
