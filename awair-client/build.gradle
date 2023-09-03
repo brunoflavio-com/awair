@@ -1,0 +1,28 @@
+plugins {
+    id "com.github.node-gradle.node" version "7.0.0"
+}
+
+node {
+    version = '18.17.1'
+    npmVersion = '9.8.1'
+    download = true
+}
+
+task compileTypeScript(type: NpmTask, dependsOn: npmInstall) {
+    args = ['run', 'build']
+    doLast {
+        copy {
+            from 'src/index.html'
+            into 'dist'
+        }
+    }
+}
+
+
+task copyToStatic(type: Copy) {
+    from 'dist'
+    into '../awair-api/src/main/resources/static'
+}
+
+task build(dependsOn: [compileTypeScript, copyToStatic])
+

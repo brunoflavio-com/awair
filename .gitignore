@@ -1,6 +1,12 @@
 # project specific
 readings-database.*
 
+# Ignore copied files from awair-client to awair-api
+awair-api/src/main/resources/static/
+
+# awair-client specific
+awair-client/node_modules/
+awair-client/dist/
 
 # Created by https://www.toptal.com/developers/gitignore/api/gradle,intellij,groovy,java
 # Edit at https://www.toptal.com/developers/gitignore?templates=gradle,intellij,groovy,java
