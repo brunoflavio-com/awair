@@ -1,5 +1,3 @@
-DROP TABLE IF EXISTS genre;
-
 CREATE TABLE readings
 (
     timestamp TIMESTAMP(9) NOT NULL PRIMARY KEY,
