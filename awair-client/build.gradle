@@ -18,11 +18,12 @@ task compileTypeScript(type: NpmTask, dependsOn: npmInstall) {
     }
 }
 
+task build(dependsOn: compileTypeScript)
 
-task copyToStatic(type: Copy) {
+task clean(type: Delete) {
+    delete 'dist'
+}
+task copyStaticContent(type: Copy, dependsOn: build) {
     from 'dist'
     into '../awair-api/src/main/resources/static'
 }
-
-task build(dependsOn: [compileTypeScript, copyToStatic])
-

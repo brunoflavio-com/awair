@@ -8,6 +8,16 @@ plugins {
 version = "0.1"
 group = "com.brunoflavio.awair"
 
+processResources.dependsOn ':awair-client:copyStaticContent'
+inspectRuntimeClasspath.dependsOn ':awair-client:copyStaticContent'
+
+
+task cleanStatic(type: Delete) {
+    delete 'src/main/resources/static'
+}
+
+clean.dependsOn 'cleanStatic'
+
 repositories {
     maven {
         url "https://s01.oss.sonatype.org/content/repositories/snapshots/"

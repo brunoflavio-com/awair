@@ -1,3 +1,4 @@
 rootProject.name = 'awair'
-include 'awair-api'
-include 'awair-client'
+include 'awair-api', 'awair-client'
+
+
