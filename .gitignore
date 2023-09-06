@@ -8,6 +8,16 @@ awair-api/src/main/resources/static/
 awair-client/node_modules/
 awair-client/dist/
 
+# local env files
+awair-client/.env.local
+awair-client/.env.*.local
+
+# Log files
+awair-client/npm-debug.log*
+awair-client/yarn-debug.log*
+awair-client/yarn-error.log*
+awair-client/pnpm-debug.log*
+
 # Created by https://www.toptal.com/developers/gitignore/api/gradle,intellij,groovy,java
 # Edit at https://www.toptal.com/developers/gitignore?templates=gradle,intellij,groovy,java
 
