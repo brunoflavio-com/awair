@@ -1,7 +1,8 @@
 <template>
-  <div id="app">
-    <AwairCard/>
-    <!-- Other components or content -->
+  <div id="app" class="container">
+    <section class="section">
+      <AwairCard/>
+    </section>
   </div>
 </template>
 

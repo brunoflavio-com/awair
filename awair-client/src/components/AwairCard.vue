@@ -1,14 +1,23 @@
 <template>
-  <div class="awair-card">
-    <h2>Awair Score: {{ score }}</h2>
-    <p>Timestamp: {{ timestamp }}</p>
-    <p>Humidity: {{ humid }}%</p>
-    <p>Temperature: {{ temp }}°C</p>
-    <p>CO2: {{ co2 }} ppm</p>
-    <p>VOC: {{ voc }}</p>
-    <p>PM2.5: {{ pm25 }}</p>
+  <div class="awair-card card">
+    <header class="card-header">
+      <p class="card-header-title">
+        Awair Score: {{ score }}
+      </p>
+    </header>
+    <div class="card-content">
+      <div class="content">
+        <p class="subtitle is-6">Timestamp: {{ timestamp }}</p>
+        <p><strong>Humidity:</strong> {{ humid }}%</p>
+        <p><strong>Temperature:</strong> {{ temp }}°C</p>
+        <p><strong>CO2:</strong> {{ co2 }} ppm</p>
+        <p><strong>VOC:</strong> {{ voc }}</p>
+        <p><strong>PM2.5:</strong> {{ pm25 }}</p>
+      </div>
+    </div>
   </div>
 </template>
+
 
 <script>
 import axios from 'axios';
@@ -70,9 +79,6 @@ export default {
 
 <style scoped>
 .awair-card {
-  border: 1px solid #ccc;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
 }
 </style>
