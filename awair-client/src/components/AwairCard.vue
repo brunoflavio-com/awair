@@ -7,7 +7,6 @@
     </header>
     <div class="card-content">
       <div class="content">
-        <p class="subtitle is-6">Timestamp: {{ timestamp }}</p>
         <p><strong>Humidity:</strong> {{ humid }}%</p>
         <p><strong>Temperature:</strong> {{ temp }}°C</p>
         <p><strong>CO2:</strong> {{ co2 }} ppm</p>
@@ -15,12 +14,18 @@
         <p><strong>PM2.5:</strong> {{ pm25 }}</p>
       </div>
     </div>
+    <footer class="card-footer">
+      <a class="card-footer-item" href="#">View more</a>
+      <time :datetime="timestamp" :title="timestamp" class="card-footer-item">{{ relativeTimeString }}</time>
+    </footer>
   </div>
 </template>
 
 
 <script>
 import axios from 'axios';
+import moment from 'moment';
+
 
 export default {
   data() {
@@ -40,14 +45,18 @@ export default {
       voc_ethanol_raw: null,
       pm25: null,
       pm10_est: null,
+      relativeTimeString: null
     };
   },
   mounted() {
+    moment.relativeTimeThreshold('ss', 5);
     this.fetchLatestData();
-    this.interval = setInterval(this.fetchLatestData, 60000);
+    this.fetchDataInterval = setInterval(this.fetchLatestData, 60000);
+    this.updateCurrentTimeInterval = setInterval(this.updateCurrentTime, 5000);
   },
   beforeUnmount() {
-    clearInterval(this.interval);
+    clearInterval(this.fetchDataInterval);
+    clearInterval(this.updateCurrentTimeInterval);
   },
   methods: {
     fetchLatestData() {
@@ -72,6 +81,9 @@ export default {
           .catch(error => {
             console.error("Error fetching data:", error);
           });
+    },
+    updateCurrentTime() {
+      this.relativeTimeString = moment(this.timestamp).fromNow();
     }
   }
 }
