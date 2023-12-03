@@ -27,4 +27,4 @@ Instructions for setting up the project, including prerequisites and steps to ge
 
 ## Contributing
 
-We welcome contributions to this project. Please refer to the contributing guidelines for more information.
+I welcome contributions if you find the project useful. Just get in touch and send in your pull request.

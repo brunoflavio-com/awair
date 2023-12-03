@@ -32,7 +32,3 @@ To clean just the awair-client project, execute:
 ```bash
 ./gradlew :awair-client:clean
 ```
-
-## Contributing
-
-I welcome contributions to the awair-client. If you have suggestions or improvements, please read our contributing guidelines for more information on how to submit pull requests.
