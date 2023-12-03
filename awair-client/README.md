@@ -6,45 +6,32 @@ The `awair-client` is a Vue.js based frontend application for the Awair Air Qual
 
 ## Project setup
 
-To set up the project, run the following command:
+This project is using [gradle-node-plugin](https://github.com/node-gradle/gradle-node-plugin/tree/main#readme), so you can use the global build/clean targets to setup the project.
+
+
+## Compiles
+
+To compile just the awair-client project use:
 
 ```bash
-npm install
+./gradlew :awair-client:build
 ```
 
-## Compiles and hot-reloads for development
+## Running just this project
 
-To compile and hot-reload for development purposes, use:
+To rum serve (equivalent to npm run serve) the awair-client project use:
 
 ```bash
-npm run serve
+./gradlew :awair-client:serve
 ```
 
-## Compiles and minifies for production
+## Cleaning up
 
-For compiling and minifying for production, run:
+To clean just the awair-client project, execute:
 
 ```bash
-npm run build
+./gradlew :awair-client:clean
 ```
-
-## Lints and fixes files
-
-To lint and fix files in the project, execute:
-
-```bash
-npm run lint
-```
-
-## Customize configuration
-
-For customizing the configuration, refer to the Vue CLI Configuration Reference.
-
-## Features
-
-- Real-time Data Display: Shows the latest air quality readings in a clear and concise manner.
-- Data Visualization: Includes graphs and charts for a comprehensive understanding of air quality trends.
-- Responsive Design: Ensures the application is fully functional and visually appealing on a variety of devices.
 
 ## Contributing
 

@@ -23,6 +23,11 @@ task build(dependsOn: compileTypeScript)
 task clean(type: Delete) {
     delete 'dist'
 }
+
+task serve(type: NpmTask, dependsOn: build) {
+    args = ['run', 'serve']
+}
+
 task copyStaticContent(type: Copy, dependsOn: build) {
     from 'dist'
     into '../awair-api/src/main/resources/static'
