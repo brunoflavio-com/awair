@@ -19,12 +19,15 @@
       <time :datetime="timestamp" :title="timestamp" class="card-footer-item">{{ relativeTimeString }}</time>
     </footer>
   </div>
+  <historical-data-view></historical-data-view>
 </template>
 
 
 <script>
 import axios from 'axios';
 import moment from 'moment';
+
+import HistoricalDataView from './HistoricalDataView.vue';
 
 
 export default {
@@ -85,6 +88,9 @@ export default {
     updateCurrentTime() {
       this.relativeTimeString = moment(this.timestamp).fromNow();
     }
+  },
+  components: {
+    HistoricalDataView
   }
 }
 </script>
