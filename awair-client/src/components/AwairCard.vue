@@ -60,7 +60,7 @@ export default {
   },
   methods: {
     fetchLatestData() {
-      axios.get('http://localhost:8080/awair/latest')
+      axios.get('/awair/latest')
           .then(response => {
             this.timestamp = response.data.timestamp;
             this.score = response.data.score;
