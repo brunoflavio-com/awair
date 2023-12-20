@@ -1,5 +1,5 @@
 # project specific
-readings-database.*
+readings-database*.*
 
 # Ignore copied files from awair-client to awair-api
 awair-api/src/main/resources/static/
