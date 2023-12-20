@@ -18,6 +18,14 @@ task cleanStatic(type: Delete) {
 
 clean.dependsOn 'cleanStatic'
 
+tasks.named("dockerfile") {
+    instruction """ENV MICRONAUT_ENVIRONMENTS=production """
+    instruction """VOLUME /db"""
+}
+
+tasks.named('dockerBuild') {
+    images = ["${rootProject.name}"]
+}
 repositories {
     maven {
         url "https://s01.oss.sonatype.org/content/repositories/snapshots/"
@@ -75,5 +83,4 @@ micronaut {
         optimizeNetty = true
     }
 }
-
 
